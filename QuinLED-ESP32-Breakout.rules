@@ -1,0 +1,81 @@
+
+(rules PCB QuinLED-ESP32-Breakout
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 377)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND +12V "Net-(Led1-Pin_1)" GPIO4 "Net-(Led2-Pin_1)" GPIO12 "Net-(Led3-Pin_1)" GPIO13
+    "Net-(Led4-Pin_1)" GPIO14 GPIO2 GPIO15 "Net-(PIR1-Pin_3)" "Net-(Q1-B)" GPIO34 +3.3V
+    GPIO35 GPIO36 GPIO16 GPIO33 GPIO32 "unconnected-(U1-GND*-Pad2)" "unconnected-(U1-S_VN-Pad3)" "unconnected-(U1-5vF*-Pad9)"
+    "unconnected-(U1-EN-Pad10)" "unconnected-(U1-IO26-Pad12)" "unconnected-(U1-IO18-Pad13)" "unconnected-(U1-IO19-Pad14)" "unconnected-(U1-IO23-Pad15)" "unconnected-(U1-IO5-Pad16)" "unconnected-(U1-3v3-Pad17)" "unconnected-(U1-TXD-Pad19)"
+    "unconnected-(U1-RXD-Pad20)" "unconnected-(U1-IO22-Pad21)" "unconnected-(U1-IO21-Pad22)" "unconnected-(U1-IO17-Pad23)" "unconnected-(U1-GND-Pad25)" "unconnected-(U1-5v0-Pad26)" "unconnected-(U1-GND-Pad28)" "unconnected-(U1-IO27-Pad29)"
+    "unconnected-(U1-IO25-Pad30)" "unconnected-(U1-IO_0-Pad34)" "unconnected-(U1-NC-Pad36)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

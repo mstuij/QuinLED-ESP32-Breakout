@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "QuinLED-ESP32")(type "KiCad")(uri "C:/Users/martin/Downloads/QuinLED-ESP32-KiCad6/QuinLED-ESP32.kicad_sym")(options "")(descr ""))
+)
